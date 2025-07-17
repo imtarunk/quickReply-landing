@@ -7,10 +7,10 @@ export const ServiceBenefitsSection = () => {
   const navItems = ["Key Features", "How it works", "FAQ", "Policies"];
 
   return (
-    <header className="w-full h-[72px] bg-[#ffffffcc] shadow-[0px_0px_22px_#4ebff740] backdrop-blur-[8.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(8.5px)_brightness(100%)] flex items-center justify-between px-32">
+    <header className=" z-100 w-full h-[72px] bg-white shadow-[0px_0px_22px_#4ebff740] backdrop-blur-[8.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(8.5px)_brightness(100%)] flex items-center justify-between lg:px-20 md:px-10 sm:px-4">
       {/* Logo */}
       <Image
-        className="w-[79px] h-[46px] object-cover"
+        className="w-[79px] h-[46px] object-cover rounded-lg "
         alt="Logo"
         src="/image-1.png"
         width={79}
@@ -23,7 +23,7 @@ export const ServiceBenefitsSection = () => {
           <a
             key={index}
             href="#"
-            className="font-medium text-black text-base font-sans hover:text-gray-600 transition-colors"
+            className="md:gap-1 lg:gap-2 font-medium text-black text-base font-sans hover:text-gray-600 transition-colors"
           >
             {item}
           </a>

@@ -4,10 +4,10 @@ import { Card } from "../../ui/card";
 
 export const TrustSection = () => {
   return (
-    <section className="relative w-full flex flex-col md:flex-row gap-8 py-12">
-      <div className="flex-1">
-        <h1 className="font-extrabold text-5xl md:text-[65px] leading-tight mb-8 font-sans text-black">
-          Lead Recovery Infrastructure for Service Businesses
+    <section className="relative w-full flex flex-col md:flex-row gap-8 px-4 sm:px-6 md:px-8 ">
+      <div className="flex-1 ">
+        <h1 className="w-99 font-extrabold text-4xl md:text-[65px] leading-tight mb-8 font-sans text-black">
+          Lead Recovery Infrastructure <br/>for Service Businesses
         </h1>
 
         <p className="text-xl font-medium text-black leading-[30px] mb-12 max-w-[541px]">
@@ -28,10 +28,12 @@ export const TrustSection = () => {
         </div>
       </div>
 
-      <div className="flex-1 relative min-h-[417px]">
-        <Card className="absolute w-[505px] h-[364px] top-0 right-0 bg-[#e9e4e4] rounded-none border-none" />
-        <Card className="absolute w-[184px] h-[349px] top-[68px] left-0 bg-[#edebeb] rounded-[10px] border-none" />
-      </div>
+      {/* Right: Overlapping Cards */}
+  <div className="flex-1 relative min-h-[400px] sm:min-h-[500px] md:min-h-[550px] lg:min-h-[417px]">
+    <Card className="absolute w-[85%] sm:w-[85%] md:w-[80%] lg:w-[505px] h-[250px] sm:h-[300px] md:h-[340px] top-0 right-0 bg-[#e9e4e4] rounded-none border-none shadow-md" />
+    <Card className="absolute w-[50%] sm:w-[40%] md:w-[35%] lg:w-[184px] h-[230px] sm:h-[300px] md:h-[330px] top-[80px] left-0 bg-[#edebeb] rounded-[10px] border-none shadow-md" />
+  </div>
+
     </section>
   );
 };
