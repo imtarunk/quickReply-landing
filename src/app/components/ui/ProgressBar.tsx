@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 interface ProgressBarProps {
-    targetRef: React.RefObject<HTMLElement>;
+    targetRef: React.RefObject<HTMLElement|null>;
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({ targetRef }) => {
