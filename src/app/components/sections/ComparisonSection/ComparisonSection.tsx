@@ -27,9 +27,13 @@ const faqItems = [
   },
 ];
 
-export const ComparisonSection = () => {
+
+interface FAQSectionProps {
+  id?: string;
+}
+export const ComparisonSection = ({ id }: FAQSectionProps) => {
   return (
-    <section className="flex flex-col w-full max-w-[1200px] mx-auto items-center justify-center gap-20 py-[37px] px-4">
+    <section id={id} className="flex flex-col w-full max-w-[1200px] mx-auto items-center justify-center gap-20 py-[37px] px-4">
       <div className="h-4" />
 
       <motion.div
@@ -61,7 +65,7 @@ export const ComparisonSection = () => {
             <AccordionItem
               key={`faq-${index}`}
               value={`item-${index}`}
-              className="mb-0"
+              className="mb-0 border-none"
             >
               <div className="bg-white rounded-[25px] border border-solid border-[#b4b4b480] shadow-[0px_4px_4px_#0000001a] overflow-hidden">
                 <AccordionTrigger className="px-11 py-[29px] hover:no-underline">

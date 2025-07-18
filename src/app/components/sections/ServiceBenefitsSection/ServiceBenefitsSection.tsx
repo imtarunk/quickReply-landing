@@ -7,19 +7,15 @@ export const ServiceBenefitsSection = () => {
   const navItems=[
     {
       label:"Key Features",
-      href:"/key-features"
+      href:"#call-to-action"
     },
     {
       label:"How it works",
-      href:"/howItWorks"
+      href:"#how-it-works"
     },
     {
       label:"FAQ",
-      href:"/faq"
-    },
-    {
-      label:"Policies",
-      href:"/policies"
+      href:"#faq-section"
     },
   ]
 

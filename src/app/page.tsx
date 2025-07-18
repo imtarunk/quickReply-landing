@@ -22,14 +22,14 @@ export default function Home() {
       </div>
 
       {/* Call To Action Section */}
-      <CallToActionSection />
+      <CallToActionSection id="call-to-action" />
 
       {/* Lead Recovery Section */}
       <LeadRecoverySection />
 
       {/* Hero Section with progress bar */}
       {/* Background and layout */}
-      <HeroSection />
+      <HeroSection id="how-it-works"/>
 
       {/* Demo Section */}
       <DemoSection />
@@ -40,7 +40,7 @@ export default function Home() {
       {/* Pagination or navigation controls */}
 
       {/* Comparison Section */}
-      <ComparisonSection />
+      <ComparisonSection id="faq-section" />
 
       {/* FAQ Section */}
       <FAQSection />
