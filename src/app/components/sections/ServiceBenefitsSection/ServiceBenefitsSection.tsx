@@ -1,27 +1,44 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "../../ui/button";
 
 export const ServiceBenefitsSection = () => {
-  // Navigation items data
-  const navItems=[
+  // Navigation items data - updated with anchor links
+  const navItems = [
     {
-      label:"Key Features",
-      href:"/key-features"
+      label: "Key Features",
+      href: "#key-features"
     },
     {
-      label:"How it works",
-      href:"/howItWorks"
+      label: "How it works",
+      href: "#how-it-works"
     },
     {
-      label:"FAQ",
-      href:"/faq"
+      label: "FAQ",
+      href: "#faq"
     },
     {
-      label:"Policies",
-      href:"/policies"
+      label: "Policies",
+      href: "#policies"
     },
-  ]
+  ];
+
+  // Smooth scroll function
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+  
 
   return (
     <header className=" z-100 w-full h-[72px] bg-white shadow-[0px_0px_22px_#4ebff740] backdrop-blur-[8.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(8.5px)_brightness(100%)] flex items-center justify-between lg:px-20 md:px-10 sm:px-4">
@@ -40,7 +57,8 @@ export const ServiceBenefitsSection = () => {
           <a
             key={item.label}
             href={item.href}
-            className="md:gap-1 lg:gap-2 font-medium text-black text-base font-sans hover:text-gray-600 transition-colors"
+            onClick={(e) => handleNavClick(e, item.href)}
+            className="md:gap-1 lg:gap-2 font-medium text-black text-base font-sans hover:text-gray-600 transition-colors cursor-pointer"
           >
             {item.label}
           </a>

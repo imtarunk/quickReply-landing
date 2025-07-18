@@ -24,7 +24,7 @@ export const HeroSection = () => {
 
   return (
     <section className="w-full py-20 flex justify-center">
-      <div className="relative max-w-7xl w-full px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start justify-between gap-16">
+      <div className="relative max-w-7xl w-full px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start justify-between gap-20">
         {/* Left side (Image/Graphic placeholder) */}
         <div className="w-full lg:w-[476px] h-[300px] sm:h-[400px] lg:h-[592px] bg-[#f6f6f6] rounded-[19px] shadow-md flex items-center justify-center text-gray-400 text-xl font-semibold">
           {/* Replace below with actual image or animation */}
@@ -32,19 +32,19 @@ export const HeroSection = () => {
         </div>
 
         {/* Vertical Progress Divider */}
-        <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex-col items-center">
+        <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-10 -translate-y-1/3 z-10 flex-col items-center">
           <div className="w-2.5 h-[467px] bg-[#dddddd] rounded-[10px] flex flex-col items-center transition-all duration-500">
             <div className="w-2.5 h-[103px] bg-[#4ebff7] rounded-[10px] transition-all duration-500" />
           </div>
         </div>
 
         {/* Right side (Steps) */}
-        <div className="flex flex-col w-full lg:w-[582px] gap-10 z-20">
+        <div className="flex flex-col w-full lg:w-[582px] gap-16 z-20">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black font-['Inter',Helvetica] text-center lg:text-left leading-snug">
             How ReplyQuick Recovers Leads for Service Businesses
           </h2>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-16">
             {steps.map((step, index) => (
               <Card
                 key={`step-${index}`}

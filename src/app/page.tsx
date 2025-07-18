@@ -16,7 +16,7 @@ export default function Home() {
       <ServiceBenefitsSection />
 
       {/* Trust Section with gradient background */}
-      <div className="relative w-full max-w-[1246px] mt-[120px] mx-auto">
+      <div id="key-features" className="relative w-full max-w-[1246px] mt-[120px] mx-auto">
         <div className="absolute w-[1239px] h-[470px] top-0 left-[7px] rounded-[619.5px/235px] blur-[200px] bg-[linear-gradient(90deg,rgba(200,223,234,1)_36%,rgba(37,139,190,1)_83%)]" />
         <TrustSection />
       </div>
@@ -29,7 +29,9 @@ export default function Home() {
 
       {/* Hero Section with progress bar */}
       {/* Background and layout */}
-      <HeroSection />
+      <div id="how-it-works">
+        <HeroSection />
+      </div>
 
       {/* Demo Section */}
       <DemoSection />
@@ -40,7 +42,9 @@ export default function Home() {
       {/* Pagination or navigation controls */}
 
       {/* Comparison Section */}
-      <ComparisonSection />
+      <div id="faq">
+        <ComparisonSection />
+      </div>
 
       {/* FAQ Section */}
       <FAQSection />
