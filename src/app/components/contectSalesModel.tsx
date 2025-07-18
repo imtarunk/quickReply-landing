@@ -24,8 +24,8 @@ export function LiveDemoDialog({
 
           {/* Header */}
           <h2 className="text-2xl font-bold text-gray-900">
-            Experience <span className="text-[#4ebff7]">ReplyQuick</span>{" "}
-            instantly
+            Get a Live Demo of{" "}
+            <span className="text-[#4ebff7]">ReplyQuick</span>
           </h2>
 
           {/* Description */}
@@ -38,9 +38,9 @@ export function LiveDemoDialog({
           <div className="relative w-full mt-2">
             <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <Input
-              id="phone"
-              type="tel"
-              placeholder="replyquick@gamil.com"
+              id="mail"
+              type="email"
+              placeholder="Email address"
               className="h-12 pl-10 text-base rounded-2xl  shadow-[#4ebff7]"
             />
           </div>
@@ -50,14 +50,9 @@ export function LiveDemoDialog({
             type="submit"
             className="w-full h-12 text-base bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transform transition-transform duration-300 hover:scale-[1] cursor-pointer rounded-2xl"
           >
-            Send Email
+            Contact Sales
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-
-          {/* Footer Text */}
-          <p className="text-xs text-gray-400 mt-2">
-            We&apos;ll call you within 30 seconds. The call is free.
-          </p>
         </div>
       </DialogContent>
     </Dialog>
