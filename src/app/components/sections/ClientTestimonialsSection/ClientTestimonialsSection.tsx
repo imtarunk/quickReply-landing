@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Card, CardContent } from "../../ui/card";
@@ -26,11 +28,10 @@ export const ClientTestimonialsSection = () => {
     },
   ];
 
-  // Duplicate testimonials for seamless looping
   const loopingTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="w-full bg-white py-16 overflow-hidden">
+    <section className="w-full py-30 bg-gradient-to-b from-blue-50 to-blue-100">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-extrabold text-black">
           What Our Clients Say
@@ -44,12 +45,20 @@ export const ClientTestimonialsSection = () => {
         />
       </div>
 
-      <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee gap-6">
+      <div className="marquee-container w-full overflow-hidden">
+        <div className="marquee-track flex gap-6">
           {loopingTestimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="min-w-[320px] max-w-[400px] bg-white rounded-2xl shadow-md"
+              className="min-w-[320px] max-w-[400px] bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-[#c9c9c9] cursor-pointer"
+              onMouseEnter={(e) => {
+                e.currentTarget.parentElement!.style.animationPlayState =
+                  "paused";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.parentElement!.style.animationPlayState =
+                  "running";
+              }}
             >
               <CardContent className="p-6 flex flex-col gap-4">
                 <p className="text-base text-black leading-relaxed">

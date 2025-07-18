@@ -73,6 +73,7 @@ body {
     --radius: 0.5rem;
   }
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -82,6 +83,12 @@ body {
   }
 }
 
-.animate-marquee {
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
   animation: marquee 30s linear infinite;
+  animation-play-state: running;
 }
