@@ -38,9 +38,6 @@ export default function Home() {
       <ClientTestimonialsSection />
 
       {/* Pagination or navigation controls */}
-      <div className="flex justify-center mt-4">
-        <img className="w-[145px] h-[68px]" alt="Frame" src="/frame-80.svg" />
-      </div>
 
       {/* Comparison Section */}
       <ComparisonSection />
