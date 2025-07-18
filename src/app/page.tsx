@@ -8,6 +8,8 @@ import { HeroSection } from "./components/sections/HeroSection";
 import { LeadRecoverySection } from "./components/sections/LeadRecoverySection";
 import { ServiceBenefitsSection } from "./components/sections/ServiceBenefitsSection";
 import { TrustSection } from "./components/sections/TrustSection";
+import { ContactSection } from "./components/ContactSection";
+import { SendEmailSection } from "./components/sections/sendEmailSection/sendEmailSection";
 
 export default function Home() {
   return (
@@ -42,7 +44,10 @@ export default function Home() {
       {/* Comparison Section */}
       <ComparisonSection />
 
+      <SendEmailSection />
       {/* FAQ Section */}
+      <ContactSection />
+
       <FAQSection />
     </div>
   );

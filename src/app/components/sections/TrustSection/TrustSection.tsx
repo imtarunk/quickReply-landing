@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../ui/button";
 import { Card } from "../../ui/card";
 import { motion } from "framer-motion";
+import { LiveDemoDialog } from "../../contectSalesModel"; // Adjust path as needed
 
 export const TrustSection = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section className="relative w-full flex flex-col md:flex-row gap-8 px-4 sm:px-6 md:px-8 py-16 overflow-hidden">
       {/* Left Content */}
@@ -28,11 +31,20 @@ export const TrustSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transform transition-transform duration-300  hover:scale-[1.05] cursor-pointer">
+          <Button
+            className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transform transition-transform duration-300 hover:scale-[1.05] cursor-pointer"
+            onClick={() => setOpen(true)}
+          >
             Contact Sales
           </Button>
 
-          <Button className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-black hover:bg-gray-800 text-white font-semibold border border-solid transform transition-transform duration-300  hover:scale-[1.05] cursor-pointer">
+          <Button
+            className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-black hover:bg-gray-800 text-white font-semibold border border-solid transform transition-transform duration-300 hover:scale-[1.05] cursor-pointer"
+            onClick={() => {
+              const el = document.getElementById("bookdemosection");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             Book a Demo
           </Button>
         </div>
@@ -67,6 +79,7 @@ export const TrustSection = () => {
           <Card className="w-full h-full bg-[#edebeb] rounded-[10px] border-none shadow-md" />
         </motion.div>
       </motion.div>
+      <LiveDemoDialog open={open} setOpen={setOpen} />
     </section>
   );
 };

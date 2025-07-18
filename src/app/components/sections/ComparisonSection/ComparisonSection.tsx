@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronRightIcon } from "lucide-react";
 import React from "react";
 import {
   Accordion,
@@ -8,22 +7,58 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../ui/accordion";
-import { Button } from "../../ui/button";
 import { motion } from "framer-motion";
 
 const faqItems = [
   {
-    question: "What happens when a lead doesn't respond?",
+    question: "How does ReplyQuick improve our customer experience?",
     answer:
-      "What happens when a lead doesn't respond What happens when a lead doesn't respond What happens when a lead doesn't respond",
+      "ReplyQuick follows up with missed calls in seconds, so customers get fast answers instead of voicemail or silence. That means better service, less frustration, and more business for you, without adding to your team’s workload.",
   },
-  { question: "How does Replyquick get more sales?", answer: "" },
-  { question: "Is Replyquick's AI messaging personalized?", answer: "" },
-  { question: "What happens if a lead doesn't respond?", answer: "" },
-  { question: "How secure is my data with ReplyQuick?", answer: "" },
   {
-    question: "How does ReplyQuick schedule meetings automatically?",
-    answer: "",
+    question: "How fast can we get ReplyQuick running?",
+    answer:
+      "Most businesses are live within 48–72 hours. No downtime, no disruption, we handle the full setup while you keep running like normal.",
+  },
+  {
+    question: "Will this disrupt our current phone or system setup?",
+    answer:
+      "Not at all. ReplyQuick works alongside your existing phone system. Your team keeps doing their job, we just handle the missed calls you don’t have time for.",
+  },
+  {
+    question: "What’s the real cost savings?",
+    answer:
+      "ReplyQuick costs far less than hiring staff and works 24/7. Most businesses save 60–80% on missed call losses and avoid paying for extra phone support or after-hours coverage.",
+  },
+  {
+    question: "How secure is our customer data?",
+    answer:
+      "We use bank-level encryption to protect every message and call. No data is shared or sold, your customers’ privacy is fully protected, always.",
+  },
+  {
+    question: "What happens when a customer needs human help?",
+    answer:
+      "We instantly pass the conversation to your team with full context. Your staff sees the full history and can jump in without missing a beat, no repeating, no confusion.",
+  },
+  {
+    question: "What kind of insights and analytics will we get?",
+    answer:
+      "You’ll see when calls come in, which ones turn into leads, and where you’re losing opportunities. All data is organized in a simple dashboard to help you improve follow-up and conversions.",
+  },
+  {
+    question: "Can ReplyQuick collect payments and schedule appointments?",
+    answer:
+      "Yes. We can trigger payment links through your CRM or invoicing tools and fully book appointments using your connected calendar or system, all automated.",
+  },
+  {
+    question: "Can ReplyQuick make outbound calls too?",
+    answer:
+      "Yes. We can run outbound campaigns to follow up with leads, re-engage past customers, or confirm appointments. Just let us know and we’ll activate it for you.",
+  },
+  {
+    question: "Can I manage multiple businesses with ReplyQuick?",
+    answer:
+      "Absolutely. You can manage multiple brands under one account, each with its own scripts, settings, and messaging, all easily organized in one dashboard.",
   },
 ];
 
@@ -77,28 +112,6 @@ export const ComparisonSection = () => {
           </motion.div>
         ))}
       </Accordion>
-
-      <motion.h3
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="font-extrabold text-6xl text-center text-black [font-family:'Inter',Helvetica]"
-      >
-        Still not sure yet? Book a Demo!
-      </motion.h3>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <Button className="w-[265px] h-[63px] bg-[#2a8fc1] hover:bg-[#237aa5] transition-colors duration-300 rounded-[30px] font-semibold text-base text-white font-inter flex items-center justify-center cursor-pointer">
-          Book a Demo
-          <ChevronRightIcon className="ml-2 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
-        </Button>
-      </motion.div>
     </section>
   );
 };
