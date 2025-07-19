@@ -6,20 +6,19 @@ export const ServiceBenefitsSection = () => {
   // Navigation items data
   const navItems=[
     {
+      index:1,
       label:"Key Features",
-      href:"/key-features"
+      href:"#call-to-action"
     },
     {
+      index:2,
       label:"How it works",
-      href:"/howItWorks"
+      href:"#how-it-works"
     },
     {
+      index:3,
       label:"FAQ",
-      href:"/faq"
-    },
-    {
-      label:"Policies",
-      href:"/policies"
+      href:"#faq-section"
     },
   ]
 

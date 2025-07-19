@@ -43,10 +43,14 @@ const features: FeatureData[] = [
   },
 ];
 
-export const CallToActionSection = (): React.JSX.Element => {
+interface props {
+  id?: string;
+}
+
+export const CallToActionSection = ({id}:props): React.JSX.Element => {
   return (
     // --- MAIN LAYOUT: Preserved from your original code ---
-    <section className="mx-auto flex w-full max-w-[1029px] flex-col items-center gap-[79px] py-12 px-4 sm:px-6 md:px-8">
+    <section id={id} className="mx-auto flex w-full max-w-[1029px] flex-col items-center gap-[79px] py-12 px-4 sm:px-6 md:px-8">
       <div className="h-4"></div>
       <div className="flex w-full flex-col items-center gap-12 text-center">
         {/* All heading and paragraph classes are identical to your original */}
