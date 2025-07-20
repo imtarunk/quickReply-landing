@@ -191,3 +191,35 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* --- Testimonial Marquee Animation --- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+}
+
+.marquee-track {
+  /* You can adjust the duration to make the scroll faster or slower */
+  animation: marquee 60s linear infinite;
+}
+
+/* This is the rule that stops the animation on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Accessibility: Stop animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    overflow-x: auto; /* Makes it a normal scrollable list */
+  }
+}

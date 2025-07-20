@@ -2,81 +2,58 @@
 
 import React from "react";
 import Image from "next/image";
-import { Card, CardContent } from "../../ui/card";
+import { Card } from "../../ui/card";
+import { motion } from "framer-motion";
+import { testimonials } from "../../../../../public/config/data.config";
+
+// Data updated to match the example in the image
+
+const loopingTestimonials = [...testimonials, ...testimonials];
 
 export const ClientTestimonialsSection = () => {
-  const testimonials = [
-    {
-      text: "Before ReplyQuick, we were missing tons of calls during jobs and after hours...",
-      company: "Airflow Conditioning",
-      image: "/ellipse-1.png",
-    },
-    {
-      text: "ReplyQuick has completely changed how we handle incoming leads...",
-      company: "Arctic Mechanical",
-      image: "/ellipse-1-1.png",
-    },
-    {
-      text: "Game changer! ReplyQuick saves us time and boosts client engagement.",
-      company: "HVAC Pros",
-      image: "/ellipse-1.png",
-    },
-    {
-      text: "We're booking 30% more appointments monthly thanks to ReplyQuick!",
-      company: "CoolTech Services",
-      image: "/ellipse-1-1.png",
-    },
-  ];
-
-  const loopingTestimonials = [...testimonials, ...testimonials];
-
   return (
-    <section className="w-full py-30 bg-gradient-to-b from-blue-50 to-blue-100">
-      <div className="text-center mb-10">
+    <section className="w-full py-24 bg-white overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
+      >
         <h2 className="text-4xl font-extrabold text-black">
           What Our Clients Say
         </h2>
         <Image
           src="/frame-30.svg"
-          alt="Decorative"
+          alt="Decorative underline"
           width={160}
           height={20}
           className="mx-auto mt-4"
         />
-      </div>
+      </motion.div>
 
-      <div className="marquee-container w-full overflow-hidden">
-        <div className="marquee-track flex gap-6">
+      <div className="marquee-container">
+        <div className="marquee-track flex gap-8 p-4">
           {loopingTestimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="min-w-[320px] max-w-[400px] bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-[#c9c9c9] cursor-pointer"
-              onMouseEnter={(e) => {
-                e.currentTarget.parentElement!.style.animationPlayState =
-                  "paused";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.parentElement!.style.animationPlayState =
-                  "running";
-              }}
+              className="min-w-[420px] w-[420px] flex-shrink-0 p-12 rounded-2xl bg-white shadow-lg border border-gray-100 flex flex-col hover:cursor-pointer"
             >
-              <CardContent className="p-6 flex flex-col gap-4">
-                <p className="text-base text-black leading-relaxed">
+              <div className="flex flex-col items-center text-center space-y-10">
+                <Image
+                  src={testimonial.image}
+                  alt={`${testimonial.company} logo`}
+                  width={160}
+                  height={40}
+                  className="object-contain h-10 w-auto"
+                />
+                <blockquote className="text-sm italic text-gray-500 leading-relaxed">
                   {testimonial.text}
+                </blockquote>
+                <p className="font-semibold text-lg text-[#4EBFF7]">
+                  {testimonial.company}
                 </p>
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={testimonial.image}
-                    alt="Client"
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
-                  />
-                  <span className="font-semibold text-black text-sm">
-                    {testimonial.company}
-                  </span>
-                </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>

@@ -14,41 +14,9 @@ import { Button } from "../../ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { comparisonData } from "../../../../../public/config/data.config";
 
 export const DemoSection = () => {
-  const comparisonData = [
-    {
-      feature: "Lead Follow-Up Speed",
-      others: "Manual/ Delayed",
-      replyQuick: "Instant, automated",
-    },
-    {
-      feature: "Missed Call Recovery",
-      others: "Missed or lost",
-      replyQuick: "Recovered automatically",
-    },
-    {
-      feature: "Operating Hours",
-      others: "Limited to staff availability",
-      replyQuick: "24/7 lead capture",
-    },
-    {
-      feature: "Staff Requirement",
-      others: "Requires live receptionist",
-      replyQuick: "Fully automated",
-    },
-    {
-      feature: "Conversion Consistency",
-      others: "Inconsistent",
-      replyQuick: "Structured + trackable",
-    },
-    {
-      feature: "Lead Tracking & Visibility",
-      others: "Scattered notes",
-      replyQuick: "Real-time dashboard",
-    },
-  ];
-
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
