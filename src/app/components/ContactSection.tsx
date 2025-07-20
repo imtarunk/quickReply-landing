@@ -7,29 +7,39 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="w-full bg-[#4EBFF7] py-24 sm:py-32">
-      {/* The main container for all content, centered with a max-width */}
+    // Responsive: More gradual vertical padding for different screen sizes.
+    <section
+      id="contact"
+      className="w-full bg-[#4EBFF7] py-16 sm:py-24 lg:py-32"
+    >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading Section - Unchanged as requested */}
+        {/* --- Heading Section --- */}
         <div className="mb-12 text-center text-white">
-          <h2 className="text-4xl font-black sm:text-5xl">
+          {/* Responsive: Adjusted font size and line height for better mobile readability. */}
+          <h2 className="text-3xl font-black sm:text-4xl md:text-5xl leading-tight sm:leading-snug">
             Let&apos;s Start Recovering Your Missed Leads
           </h2>
-          <p className="mt-4 text-lg text-white/90">
+          <p className="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
             We&apos;ll show you exactly how much revenue you&apos;re leaving on
             the table.
           </p>
         </div>
 
-        {/* Form Container - Now centered and with a medium width */}
-        <div className="mx-auto max-w-3xl rounded-xl bg-white p-8 shadow-2xl sm:p-12">
+        {/* --- Form Container --- */}
+        {/* Responsive: More gradual padding for the form card. */}
+        <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 sm:p-8 md:p-12 shadow-2xl">
+          {/* This grid layout is already perfectly responsive. No changes needed. */}
           <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <Label htmlFor="name">Name *</Label>
+              <Label htmlFor="name" className="text-sm font-medium">
+                Name *
+              </Label>
               <Input id="name" placeholder="Your full name" required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email" className="text-sm font-medium">
+                Email *
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -38,11 +48,15 @@ export function ContactSection() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="company">Company Name *</Label>
+              <Label htmlFor="company" className="text-sm font-medium">
+                Company Name *
+              </Label>
               <Input id="company" placeholder="Your company" required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone *</Label>
+              <Label htmlFor="phone" className="text-sm font-medium">
+                Phone *
+              </Label>
               <Input
                 id="phone"
                 type="tel"
@@ -51,7 +65,9 @@ export function ContactSection() {
               />
             </div>
             <div className="space-y-2 md:col-span-2">
-              <Label htmlFor="message">Message *</Label>
+              <Label htmlFor="message" className="text-sm font-medium">
+                Message *
+              </Label>
               <Textarea
                 id="message"
                 placeholder="Tell us about your current challenges with customer communication..."
@@ -59,7 +75,8 @@ export function ContactSection() {
                 required
               />
             </div>
-            <div className="text-center md:col-span-2">
+            <div className="text-center md:col-span-2 mt-4">
+              {/* This button is also already perfectly responsive. No changes needed. */}
               <Button
                 type="submit"
                 size="lg"

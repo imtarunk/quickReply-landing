@@ -1,22 +1,33 @@
+"use client";
+
 import { Send } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label"; // Assuming consistent Shadcn UI imports
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-export const ContectSectionRight = () => {
+// Renamed from "ContectSectionRight" to "ContactSectionRight" for correctness
+export const ContactSectionRight = () => {
   return (
-    <Card className="rounded-3xl shadow-lg border-gray-100 w-3xl">
+    // --- CORE RESPONSIVE FIX ---
+    // Changed fixed 'w-3xl' to fluid 'w-full' with a 'max-w-3xl'.
+    // This allows the card to shrink on smaller screens while capping its width on larger ones.
+    <Card className="w-full max-w-3xl rounded-2xl sm:rounded-3xl shadow-lg border-gray-100">
       <CardContent className="p-6 sm:p-8">
         <form className="space-y-6">
+          {/* This grid is already perfectly responsive, stacking on mobile and going to 2 columns on sm+ */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Name *</Label>
+              <Label htmlFor="name" className="font-medium">
+                Name *
+              </Label>
               <Input id="name" placeholder="Your full name" required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email" className="font-medium">
+                Email *
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -25,11 +36,15 @@ export const ContectSectionRight = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="company">Company Name *</Label>
+              <Label htmlFor="company" className="font-medium">
+                Company Name *
+              </Label>
               <Input id="company" placeholder="Your company" required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone *</Label>
+              <Label htmlFor="phone" className="font-medium">
+                Phone *
+              </Label>
               <Input
                 id="phone"
                 type="tel"
@@ -39,10 +54,12 @@ export const ContectSectionRight = () => {
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message" className="font-medium">
+              Message *
+            </Label>
             <Textarea
               id="message"
-              placeholder="Tell us about your current challenges with customer communication..."
+              placeholder="Tell us about your current challenges..."
               rows={4}
               required
             />
@@ -50,7 +67,8 @@ export const ContectSectionRight = () => {
           <Button
             type="submit"
             size="lg"
-            className="w-full bg-[#4ebff7]  hover:bg-[#3eaae2] text-white font-semibold transform transition-transform duration-300 hover:scale-[1.01] cursor-pointer  text-base"
+            // The w-full class is great for mobile, making the button a large, easy tap target.
+            className="w-full bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transition-transform duration-300 hover:scale-[1.01] cursor-pointer text-base"
           >
             Send Message
             <Send className="h-4 w-4 ml-2" />

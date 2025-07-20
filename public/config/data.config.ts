@@ -77,6 +77,10 @@ export const features: FeatureData[] = [
       { src: "/vector-10.svg", className: "w-[25px] h-[25px] top-1 left-1" },
     ], // Preserved original classes
   },
+  {
+    title: "Appointment Booking",
+    icons: [{ src: "/vector-7.svg", className: "w-6 h-6 top-1 left-1" }],
+  },
 ];
 
 export const faqItems = [

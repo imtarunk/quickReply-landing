@@ -23,10 +23,13 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="w-full bg-[#4EBFF7] text-white">
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {/* Logo and Tagline */}
-          <div className="space-y-4 md:col-span-1">
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 md:py-16 sm:px-6 lg:px-8">
+        {/* --- CORE RESPONSIVE CHANGE --- */}
+        {/* Simplified grid layout: Stacks on mobile, becomes 3-column on large screens. */}
+        {/* This provides more space and a cleaner look on mobile. */}
+        <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-3 lg:gap-x-8">
+          {/* Logo and Tagline (First Column on LG screens) */}
+          <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.png" // Make sure this path is correct
@@ -35,17 +38,16 @@ export function Footer() {
                 height={60}
               />
             </Link>
-            <p className="text-sm text-white/80 max-w-xs">
+            <p className="text-sm text-white/80 max-w-xs leading-relaxed">
               Transforming missed calls into qualified leads for service
               businesses nationwide.
             </p>
           </div>
 
-          {/* Spacer for layout */}
-          <div className="hidden md:block"></div>
-
-          {/* Links Grid */}
-          <div className="grid grid-cols-2 gap-8 md:col-span-2">
+          {/* Links Grid (Second and Third Column on LG screens) */}
+          {/* Responsive: Uses a 2-column grid on mobile, which is contained within a single column of the main grid. */}
+          {/* On larger screens, this becomes part of the 3-column layout. */}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-2">
             {/* Explore Links */}
             <div>
               <h3 className="text-sm font-semibold tracking-wider uppercase">
@@ -92,8 +94,10 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Bottom Bar: Copyright and Socials */}
+        {/* This part was already perfectly responsive. Stacks on mobile, row on larger screens. */}
         <div className="mt-12 flex flex-col items-center justify-between border-t border-white/20 pt-8 sm:flex-row">
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-center sm:text-left text-white/80">
             &copy; {new Date().getFullYear()} ReplyQuick. All rights reserved.
           </p>
           <div className="mt-4 flex space-x-4 sm:mt-0">
@@ -105,8 +109,11 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-white/80 transition hover:text-white"
               >
-                <span className="sr-only">{social.icon.displayName}</span>
-                <social.icon className="h-6 w-6" />
+                {/* Screen reader text for accessibility */}
+                <span className="sr-only">
+                  {social.icon.displayName || social.href}
+                </span>
+                <social.icon className="h-6 w-6" aria-hidden="true" />
               </a>
             ))}
           </div>
