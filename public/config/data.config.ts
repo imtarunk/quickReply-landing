@@ -22,6 +22,11 @@ export const testimonials = [
 // Navigation items data
 export const navItems = [
   {
+    index: 0,
+    label: "Home",
+    href: "/",
+  },
+  {
     index: 1,
     label: "Key Features",
     href: "/#call-to-action",

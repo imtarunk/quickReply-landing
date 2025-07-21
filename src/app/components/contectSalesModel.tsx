@@ -1,6 +1,3 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Phone, ArrowRight, Mail } from "lucide-react";
@@ -43,26 +40,24 @@ export function LiveDemoDialog({
           {/* --- CORE RESPONSIVE IMPROVEMENT: Flexible Sizing --- */}
           {/* Phone Input with Icon */}
           <div className="relative w-full pt-2">
-            <Mail className="absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+            <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <Input
               id="mail"
               type="email"
+              autoComplete="email"
               placeholder="Email address"
-              // Responsive: Replaced fixed height with padding for flexibility.
-              // Added accessible focus ring.
-              className="w-full rounded-xl border-gray-300 py-3 pl-11 pr-4 text-base focus-visible:ring-2 focus-visible:ring-[#4ebff7] focus-visible:ring-offset-2"
+              className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 text-base text-gray-900 placeholder-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ebff7] focus-visible:ring-offset-2"
             />
           </div>
 
           {/* Call to Action Button */}
-          <Button
+          <button
             type="submit"
-            // Responsive: Replaced fixed height with padding.
-            className="w-full py-3 text-base bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transition-transform duration-300 hover:scale-[1.02] cursor-pointer rounded-xl"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#4EBFF7] to-[#35A3E8] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/50 hover:-translate-y-0.5 hover:saturate-150 shimmer-effect hover:cursor-pointer"
           >
             Contact Sales
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+            <ArrowRight className="h-5 w-5" />
+          </button>
         </div>
       </DialogContent>
     </Dialog>

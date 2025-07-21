@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FeatureItem } from "../../ui/FeatureCard"; // This component must also be responsive
+import { FeatureItem } from "../../ui/FeatureCard";
 import { features } from "../../../../../public/config/data.config";
 
 interface CallToActionSectionProps {
@@ -12,33 +12,24 @@ export const CallToActionSection = ({
   id,
 }: CallToActionSectionProps): React.JSX.Element => {
   return (
-    // Responsive: Using standard max-width and padding for consistency.
     <section
       id={id}
-      className="w-full max-w-6xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20"
     >
-      {/* Container for the heading and subheading */}
-      <div className="flex flex-col items-center gap-4 text-center">
-        {/* --- CORE RESPONSIVE FIX: Removed whitespace-nowrap --- */}
-        {/* Responsive: Using standard Tailwind text sizes for a harmonious type scale. */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-black leading-tight sm:leading-snug">
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
           Why Service Businesses Trust ReplyQuick
         </h1>
-
-        {/* Responsive: Using standard text sizes and a slightly lighter color for hierarchy. */}
-        <p className="max-w-3xl text-lg md:text-xl text-black/80">
+        <p className="text-base sm:text-lg md:text-xl text-black/80 max-w-2xl mx-auto">
           Everything you need to capture leads and convert them into loyal
           clients.
         </p>
       </div>
 
-      {/* --- CORE LAYOUT IMPROVEMENT: Using CSS Grid --- */}
-      {/* This grid provides explicit control over the number of columns at different breakpoints,
-          which is more robust and predictable than flex-wrap. */}
-      <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pt-16">
-        {/* The mapping logic remains the same. */}
+      {/* Features Grid */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {features.map((feature, index) => (
-          // It's crucial that FeatureItem is designed to fill its grid container.
           <FeatureItem key={feature.title} feature={feature} index={index} />
         ))}
       </div>

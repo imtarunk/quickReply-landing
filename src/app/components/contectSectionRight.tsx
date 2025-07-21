@@ -1,5 +1,3 @@
-"use client";
-
 import { Send } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Label } from "@/components/ui/label"; // Assuming consistent Shadcn UI imports
