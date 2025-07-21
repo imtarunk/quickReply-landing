@@ -42,6 +42,11 @@ export const ServiceBenefitsSection = () => {
         <Button
           variant="gradient"
           className="px-6 py-2 text-sm font-semibold shimmer-effect hover:cursor-pointer"
+          onClick={() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
         >
           Get Started
         </Button>

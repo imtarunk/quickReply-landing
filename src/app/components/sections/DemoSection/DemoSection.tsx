@@ -38,7 +38,11 @@ export const DemoSection = () => {
           No Setup Hassle. No Missed Leads. Just More Sales.
         </h2>
 
-        <Button className="flex items-center justify-center gap-2.5 px-8 py-4 md:px-6 md:py-6 bg-[#2a8fc1] rounded-full text-white font-semibold text-base sm:text-lg shadow-md transition hover:opacity-90 hover:scale-[1.01] cursor-pointer">
+        <Button onClick={() =>
+          document
+            .getElementById("contact")
+            ?.scrollIntoView({ behavior: "smooth" })
+        } className="flex items-center justify-center gap-2.5 px-8 py-4 md:px-6 md:py-6 bg-[#2a8fc1] rounded-full text-white font-semibold text-base sm:text-lg shadow-md transition hover:opacity-90 hover:scale-[1.01] cursor-pointer">
           Book a Demo
           <div className="relative w-6 h-6">
             <Image

@@ -4,8 +4,46 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import React from "react";
 
 export function ContactSection() {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+    console.log(formData)
+
+    // send form data to your email address
+    try {
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      const result = await res.json()
+      console.log(res)
+      if (result.success) {
+        alert("Email sent successfully!");
+        form.reset();
+      } else {
+        alert("Failed to send email.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong.");
+    }
+
+
+  }
   return (
     // Responsive: More gradual vertical padding for different screen sizes.
     <section
@@ -29,7 +67,7 @@ export function ContactSection() {
         {/* Responsive: More gradual padding for the form card. */}
         <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 sm:p-8 md:p-12 shadow-2xl">
           {/* This grid layout is already perfectly responsive. No changes needed. */}
-          <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-sm font-medium">
                 Name *
@@ -49,30 +87,30 @@ export function ContactSection() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="company" className="text-sm font-medium">
-                Company Name *
+                Company Name
               </Label>
-              <Input id="company" placeholder="Your company" required />
+              <Input id="company" placeholder="Your company" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-medium">
-                Phone *
+                Phone
               </Label>
               <Input
                 id="phone"
                 type="tel"
                 placeholder="(555) 123-4567"
-                required
+
               />
             </div>
             <div className="space-y-2 md:col-span-2">
               <Label htmlFor="message" className="text-sm font-medium">
-                Message *
+                Message
               </Label>
               <Textarea
                 id="message"
                 placeholder="Tell us about your current challenges with customer communication..."
                 className="min-h-[120px]"
-                required
+
               />
             </div>
             <div className="text-center md:col-span-2 mt-4">
