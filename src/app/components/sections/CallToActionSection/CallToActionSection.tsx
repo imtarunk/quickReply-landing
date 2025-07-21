@@ -1,71 +1,35 @@
+"use client";
+
 import React from "react";
-import { FeatureData } from "@/app/lib/types/types";
 import { FeatureItem } from "../../ui/FeatureCard";
+import { features } from "../../../../../public/config/data.config";
 
-const features: FeatureData[] = [
-  {
-    title: "Instant Lead Rescue",
-    icons: [
-      { src: "/vector-2.svg", className: "w-[26px] h-[15px] top-2 left-[3px]" },
-    ], // Preserved original classes
-  },
-  {
-    title: "24/7 Call Handling",
-    icons: [
-      { src: "/vector-1.svg", className: "w-[21px] h-[30px] top-0 left-[5px]" },
-    ], // Preserved original classes
-  },
-  {
-    title: "Seamless Integration",
-    icons: [
-      {
-        src: "/vector.svg",
-        className: "w-[18px] h-[18px] top-[5px] left-[7px]",
-      }, // Preserved original classes
-      { src: "/vector-5.svg", className: "w-8 h-7 top-0 left-0" }, // Preserved original classes
-      {
-        src: "/vector-11.svg",
-        className: "w-1.5 h-1.5 top-[11px] left-[13px]",
-      }, // Preserved original classes
-    ],
-  },
-  {
-    title: "Enterprise Security",
-    icons: [
-      { src: "/vector-4.svg", className: "w-[19px] h-6 top-1 left-[7px]" },
-    ], // Preserved original classes
-  },
-  {
-    title: "Real-Time Analytics",
-    icons: [
-      { src: "/vector-10.svg", className: "w-[25px] h-[25px] top-1 left-1" },
-    ], // Preserved original classes
-  },
-];
-
-interface props {
+interface CallToActionSectionProps {
   id?: string;
 }
 
-export const CallToActionSection = ({id}:props): React.JSX.Element => {
+export const CallToActionSection = ({
+  id,
+}: CallToActionSectionProps): React.JSX.Element => {
   return (
-    // --- MAIN LAYOUT: Preserved from your original code ---
-    <section id={id} className="mx-auto flex w-full max-w-[1029px] flex-col items-center gap-[79px] py-12 px-4 sm:px-6 md:px-8">
-      <div className="h-4"></div>
-      <div className="flex w-full flex-col items-center gap-12 text-center">
-        {/* All heading and paragraph classes are identical to your original */}
-        <h1 className="text-3xl font-extrabold text-black [font-family:'Inter',Helvetica] sm:text-4xl lg:text-6xl whitespace-nowrap">
-          Why Service Businesses Trust ReplyQuick
+    <section
+      id={id}
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20"
+    >
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
+          Why Service Businesses Trust{" "}
+          <span className="text-[#4EBFF7]">ReplyQuick</span>
         </h1>
-        <p className="max-w-[949px] text-[20px] font-medium text-black [font-family:'Inter',Helvetica] leading-8 sm:text-[25px]">
+        <p className="text-base sm:text-lg md:text-xl text-black/80 max-w-2xl mx-auto">
           Everything you need to capture leads and convert them into loyal
-          clients
+          clients.
         </p>
       </div>
 
-      {/* --- FLEX CONTAINER: Preserved from your original code --- */}
-      <div className="flex w-full flex-wrap justify-center gap-14 sm:gap-[70px] lg:gap-[106px]">
-        {/* The mapping logic is now cleaner, but renders the same styled items */}
+      {/* Features Grid */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {features.map((feature, index) => (
           <FeatureItem key={feature.title} feature={feature} index={index} />
         ))}

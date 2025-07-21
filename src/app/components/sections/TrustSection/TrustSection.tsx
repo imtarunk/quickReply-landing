@@ -1,85 +1,99 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "../../ui/button";
-import { Card } from "../../ui/card";
 import { motion } from "framer-motion";
-import { LiveDemoDialog } from "../../contectSalesModel"; // Adjust path as needed
+import { LiveDemoDialog } from "../../contectSalesModel";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export const TrustSection = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative w-full flex flex-col md:flex-row gap-8 px-4 sm:px-6 md:px-8 py-16 overflow-hidden">
-      {/* Left Content */}
-      <motion.div
-        className="flex-1"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <h1 className="max-w-[700px] font-extrabold text-4xl md:text-[65px] leading-tight mb-8 font-sans text-black">
-          Lead Recovery Infrastructure <br /> for Service Businesses
-        </h1>
+    <section className="relative w-full max-w-7xl mx-auto px-4 py-16 md:py-20 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-12 md:gap-y-16 gap-x-16">
+        {/* --- Left Column (Text) --- */}
+        <motion.div
+          // Changed `text-center lg:text-left` to just `text-left` to make it the default for mobile
+          className="flex flex-col text-left lg:col-span-5"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[65px] gap-y-1-px mb-6 lg:mb-8 text-black">
+            <span className="text-[#4EBFF7]">Lead Recovery Infrastructure</span>{" "}
+            for Service Businesses
+          </h1>
 
-        <p className="text-xl font-medium text-black leading-[30px] mb-12 max-w-[541px]">
-          Join the growing number of service providers using ReplyQuick to
-          instantly follow up on missed calls, recover lost leads, and book
-          qualified customers — all without hiring extra staff. Pay only for
-          real results.
-        </p>
+          <p className="text-lg md:text-xl font-medium text-black/90 leading-relaxed mb-10 lg:mb-12 max-w-lg">
+            Join the growing number of service providers using ReplyQuick to
+            instantly follow up on missed calls, recover lost leads, and book
+            qualified customers — all without hiring extra staff. Pay only for
+            real results.
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-[#4ebff7] hover:bg-[#3eaae2] text-white font-semibold transform transition-transform duration-300 hover:scale-[1.05] cursor-pointer"
-            onClick={() => setOpen(true)}
+          <div
+            // Changed `justify-center` to `justify-start` for consistent left alignment
+            className="flex flex-col sm:flex-row gap-4 justify-start z-10 relative"
           >
-            Contact Sales
-          </Button>
+            <button
+              onClick={() => setOpen(true)}
+              className="shimmer-effect bg-gradient-to-r from-[#4EBFF7] to-[#35A3E8] text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-300/40 hover:saturate-150 inline-flex items-center justify-center"
+            >
+              Live Demo <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
 
-          <Button
-            className="w-full sm:w-[243px] h-[54px] rounded-[15px] bg-black hover:bg-gray-800 text-white font-semibold border border-solid transform transition-transform duration-300 hover:scale-[1.05] cursor-pointer"
-            onClick={() => {
-              const el = document.getElementById("bookdemosection");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
+            <button
+              className="shimmer-effect bg-black text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-800/40 inline-flex items-center justify-center"
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Book a Demo
+            </button>
+          </div>
+        </motion.div>
+
+        {/* --- Right Column (Image with Badges) - UNCHANGED --- */}
+        <div className="lg:col-span-7 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            Book a Demo
-          </Button>
+            <div className="bg-white rounded-2xl shadow-2xl p-2">
+              <Image
+                src="/heroC.png"
+                alt="Inbound leads dashboard showing metrics and conversations"
+                width={1800}
+                height={1100}
+                priority={true}
+                className="rounded-2xl shadow-none transition-transform duration-300 w-full h-auto object-contain hover:scale-105"
+              />
+            </div>
+          </motion.div>
+
+          {/* --- Top Right Badge --- */}
+          <div className="absolute -top-3 -right-3 flex items-center gap-2.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-xl px-4 py-2.5 z-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400"></span>
+            <p className="font-semibold text-gray-700 text-sm">
+              92% Response Rate
+            </p>
+          </div>
+
+          {/* --- Bottom Left Badge --- */}
+          <div className="absolute -bottom-3 -left-3 flex items-center gap-2.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-xl px-4 py-2.5 z-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+            <p className="font-semibold text-gray-700 text-sm">24/7 Active</p>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Right Cards */}
-      <motion.div
-        className="flex-1 relative min-h-[400px] sm:min-h-[500px] md:min-h-[550px] lg:min-h-[417px]"
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-      >
-        {/* Main Card with hover effect */}
-        <motion.div
-          whileHover={{
-            y: -10,
-            boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.15)",
-          }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="absolute w-[85%] sm:w-[85%] md:w-[80%] lg:w-[505px] h-[250px] sm:h-[300px] md:h-[340px] top-0 right-0"
-        >
-          <Card className="w-full h-full bg-[#e9e4e4] rounded-none border-none shadow-md" />
-        </motion.div>
-
-        {/* Secondary card with soft hover tilt */}
-        <motion.div
-          whileHover={{ scale: 1.05, rotate: -1 }}
-          transition={{ type: "spring", stiffness: 150, damping: 12 }}
-          className="absolute w-[50%] sm:w-[40%] md:w-[35%] lg:w-[184px] h-[230px] sm:h-[300px] md:h-[330px] top-[80px] left-0"
-        >
-          <Card className="w-full h-full bg-[#edebeb] rounded-[10px] border-none shadow-md" />
-        </motion.div>
-      </motion.div>
-      <LiveDemoDialog open={open} setOpen={setOpen} />
+      <LiveDemoDialog open={open} setOpenAction={setOpen} />
     </section>
   );
 };

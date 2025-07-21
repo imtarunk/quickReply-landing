@@ -1,1 +1,1 @@
-export { FAQSection } from "./FAQSection";
+export { Footer } from "./FAQSection";
