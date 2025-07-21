@@ -35,11 +35,11 @@ const AccordionTrigger = React.forwardRef<
     >
       {children}
       {/* Icon container */}
-      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#4ebff7] transition-colors duration-200 group-hover:bg-[#3aa8e0]">
-        {/* Plus icon is shown when state is 'closed' */}
-        <Plus className="h-4 w-4 text-white transition-opacity duration-300 group-data-[state=open]:hidden" />
-        {/* Minus icon is shown when state is 'open' */}
-        <Minus className="hidden h-4 w-4 text-white transition-opacity duration-300 group-data-[state=open]:block" />
+      <div className="flex h-8 w-8 min-w-[2rem] min-h-[2rem] items-center justify-center rounded-md bg-[#4ebff7] transition-colors duration-200 group-hover:bg-[#3aa8e0]">
+        {/* Plus icon shown when closed */}
+        <Plus className="absolute h-4 w-4 text-white transition-opacity duration-300 group-data-[state=open]:opacity-0" />
+        {/* Minus icon shown when open */}
+        <Minus className="absolute h-4 w-4 text-white transition-opacity duration-300 group-data-[state=open]:opacity-100 group-data-[state=closed]:opacity-0" />
       </div>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
