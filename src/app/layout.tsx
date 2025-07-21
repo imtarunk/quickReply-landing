@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "ReplyQuick | Lead Recovery for Service Businesses", // Example of a better title
   description:
     "Never miss a lead again. ReplyQuick instantly follows up on missed calls to qualify and book customers.",
+  icons: './favicon.ico'
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      
       {/* --- CORE IMPROVEMENT: Flexible layout with flexbox --- */}
       {/* This ensures the footer is pushed to the bottom of the screen on short pages. */}
       <body

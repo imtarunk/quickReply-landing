@@ -198,3 +198,29 @@ body {
     transform: rotateZ(60deg) translate(15em, -15em);
   }
 }
+
+
+.infinite-scroll-container {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 15s linear infinite;
+}
+
+.infinite-scroll-track {
+  display: flex;
+}
+
+.infinite-scroll-item {
+  flex-shrink: 0;
+  width: 300px; /* same as your Image width */
+  margin-right: 16px; /* space between images */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
