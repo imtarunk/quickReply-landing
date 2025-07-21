@@ -32,7 +32,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo.png" // Make sure this path is correct
+                src="/logo2.png" // Make sure this path is correct
                 alt="ReplyQuick Logo"
                 width={60}
                 height={60}

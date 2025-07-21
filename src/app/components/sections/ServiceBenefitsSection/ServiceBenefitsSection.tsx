@@ -41,7 +41,7 @@ export const ServiceBenefitsSection = () => {
       <div className="hidden md:flex">
         <Button
           variant="gradient"
-          className="px-6 py-2 text-sm font-semibold shimmer-effect"
+          className="px-6 py-2 text-sm font-semibold shimmer-effect hover:cursor-pointer"
         >
           Get Started
         </Button>

@@ -19,7 +19,8 @@ export const CallToActionSection = ({
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
-          Why Service Businesses Trust ReplyQuick
+          Why Service Businesses Trust{" "}
+          <span className="text-[#4EBFF7]">ReplyQuick</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-black/80 max-w-2xl mx-auto">
           Everything you need to capture leads and convert them into loyal
