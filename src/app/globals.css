@@ -47,54 +47,6 @@ body {
   overflow-x: hidden;
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: transparent;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --card: transparent;
-    --card-foreground: 213 31% 91%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 216 34% 17%;
-    --radius: 0.5rem;
-  }
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -192,69 +144,57 @@ body {
   }
 }
 
-/* --- Testimonial Marquee Animation --- */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.accent-blue {
+  background-color: #4ebff7;
 }
 
-.marquee-container {
+.accent-blue-light {
+  background-color: rgba(78, 191, 247, 0.1);
+}
+
+.text-accent-blue {
+  color: #4ebff7;
+}
+
+.border-accent-blue {
+  border-color: #4ebff7;
+}
+
+.hover-accent-blue:hover {
+  background-color: #3da9e0;
+}
+
+.shimmer-effect {
+  position: relative;
   overflow: hidden;
 }
 
-.marquee-track {
-  /* You can adjust the duration to make the scroll faster or slower */
-  animation: marquee 60s linear infinite;
-}
-
-/* This is the rule that stops the animation on hover */
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* Accessibility: Stop animation for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    overflow-x: auto; /* Makes it a normal scrollable list */
-  }
-}
-
-.marquee-container {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
+.shimmer-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(229, 231, 235, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(229, 231, 235, 0) 100%
   );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0%);
+.shimmer-effect:hover::after,
+.shimmer-effect:focus::after {
+  animation: shimmer 1s forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: rotateZ(60deg) translate(15em, -15em);
   }
-}
-
-.marquee-track {
-  will-change: transform;
-  animation: marquee 60s linear infinite;
-}
-
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
 }

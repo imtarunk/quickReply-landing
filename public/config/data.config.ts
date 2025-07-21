@@ -1,24 +1,5 @@
 import { FeatureData } from "@/app/lib/types/types";
 
-export const testimonials = [
-  {
-    // Text and image updated to match your example
-    text: "Our front desk used to miss calls during busy hours, and we were losing appointments because of it. ReplyQuick now handles that follow-up instantly, and our calendar stays full, without overwhelming the staff.",
-    company: "Celine Med Spa",
-    image: "/celine-logo.png", // Assumes you have this logo in your public folder
-  },
-  {
-    text: "ReplyQuick has completely changed how we handle incoming leads. The setup was seamless, and the results were immediate. Our customer satisfaction is through the roof.",
-    company: "Arctic Mechanical",
-    image: "/ellipse-1-1.png",
-  },
-  {
-    text: "This is a game-changer. We save so much time and our client engagement has never been better. The AI handles the initial contact, and our team only jumps in for qualified leads.",
-    company: "HVAC Pros",
-    image: "/ellipse-1.png",
-  },
-];
-
 // Navigation items data
 export const navItems = [
   {
@@ -171,5 +152,110 @@ export const comparisonData = [
     feature: "Lead Tracking & Visibility",
     others: "Scattered notes",
     replyQuick: "Real-time dashboard",
+  },
+];
+
+export const allTestimonials = [
+  {
+    name: "Airflow Conditioning",
+    quote:
+      "Before ReplyQuick, we were missing tons of calls during jobs and after hours. Now every missed call gets a fast text, and we’re booking more appointments without hiring anyone new. It feels like we finally stopped leaving money on the table.",
+    logo: "/companylogos/airflow conditioning.png",
+  },
+  {
+    name: "Artic Mechanical",
+    quote:
+      "ReplyQuick has completely changed how we handle incoming leads. We don’t worry about missed calls anymore, customers get an instant response, and we stay booked without chasing anyone down. It’s like having a 24/7 front desk without the overhead.",
+    logo: "/companylogos/artic mechanical.png",
+  },
+  {
+    name: "Sunshine Electric",
+    quote:
+      "We used to lose jobs just because we couldn’t answer the phone fast enough. With ReplyQuick, every missed call turns into a follow-up message, and most end up turning into real customers. It’s working in the background while we’re out in the field.",
+    logo: "/companylogos/sunshine electric.png",
+  },
+  {
+    name: "Safe Electric",
+    quote:
+      "ReplyQuick makes sure no call slips through the cracks. Even when we're tied up on job sites, our customers still hear from us fast. It's helped us close more jobs and look way more professional.",
+    logo: "/companylogos/safe electric.png",
+  },
+  {
+    name: "Wizard Electric",
+    quote:
+      "It’s like having a smart assistant that never sleeps. Every missed call gets a fast message, and we've picked up jobs we would’ve totally lost before. Super easy to set up, and it just works.",
+    logo: "/companylogos/wizzard electric.png",
+  },
+  {
+    name: "Brown and Taylor Law Firm",
+    quote:
+      "We can't afford to miss potential clients, especially during high-volume hours. ReplyQuick follows up with every missed call instantly and filters out the time-wasters. It’s made our intake process smoother and more efficient.",
+    logo: "/companylogos/brown and taylor.png",
+  },
+  {
+    name: "Miller & Associates Law Firm",
+    quote:
+      "ReplyQuick has helped us capture more qualified leads without hiring extra staff. Now even after-hours inquiries are handled quickly and professionally. It’s become an essential part of our client acquisition strategy.",
+    logo: "/companylogos/miller associates.png",
+  },
+  {
+    name: "Smith & Johnson Law Firm",
+    quote:
+      "People expect fast replies from law firms, if we miss a call, they usually move on. With ReplyQuick, they get a message right away, and we’ve seen a clear jump in consultations booked because of it.",
+    logo: "/companylogos/smith and johnson.png",
+  },
+  {
+    name: "Celine Med Spa",
+    quote:
+      "Our front desk used to miss calls during busy hours, and we were losing appointments because of it. ReplyQuick now handles that follow-up instantly, and our calendar stays full, without overwhelming the staff.",
+    logo: "/companylogos/celine med spa.png",
+  },
+  {
+    name: "Skin Healthy Med Spa",
+    quote:
+      "We saw an immediate difference. Clients who would’ve gone silent after a missed call now get a text right away, and many end up booking. It’s like having a second front desk that never forgets to follow up.",
+    logo: "/companylogos/skin healthy.png",
+  },
+  {
+    name: "SpaJoli Med Spa",
+    quote:
+      "ReplyQuick made our med spa feel more responsive overnight. Clients get instant replies, book directly, and we don’t have to chase them down. It’s a must-have for any modern spa.",
+    logo: "/companylogos/SpaJoli.png",
+  },
+  {
+    name: "Canyons Hotel",
+    quote:
+      "Before ReplyQuick, we missed guest calls during shift changes and peak hours. Now every missed call gets a follow-up, and we’re capturing more bookings without hiring more front desk staff.",
+    logo: "/companylogos/canyons boutique hotel.png",
+  },
+  {
+    name: "Dj Shield Hotel",
+    quote:
+      "ReplyQuick helped us stop losing reservation calls. Guests now get a text response instantly, and we’ve seen a noticeable increase in direct bookings, especially after hours.",
+    logo: "/companylogos/Dj shield hotel.png",
+  },
+  {
+    name: "Dutchman Hospitality Hotel",
+    quote:
+      "We run lean staff-wise, so ReplyQuick has been a game changer. It handles missed inquiries with a personal touch and helps us book rooms even when no one’s at the desk.",
+    logo: "/companylogos/dutchman hospitality.png",
+  },
+  {
+    name: "Inn at the beach Hotel",
+    quote:
+      "It’s common for us to miss calls while helping walk-in guests. With ReplyQuick, those calls now get a text within seconds, and we’re converting way more last-minute bookings.",
+    logo: "/companylogos/inn at the beach.png",
+  },
+  {
+    name: "Kinship Landing Hotel",
+    quote:
+      "Our brand is all about connection, and ReplyQuick fits right in. It keeps us responsive even when we’re at capacity, and guests appreciate the fast, helpful replies.",
+    logo: "/companylogos/kinship landing hotel.png",
+  },
+  {
+    name: "The Reserve Retreat Hotel",
+    quote:
+      "ReplyQuick feels like a full-time concierge that never sleeps. Missed calls now turn into bookings automatically, and we’ve saved hours a week on follow-up.",
+    logo: "/companylogos/the reserve retreat.png",
   },
 ];

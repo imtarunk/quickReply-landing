@@ -1,6 +1,6 @@
 import React from "react";
 import { CallToActionSection } from "./components/sections/CallToActionSection";
-import { ClientTestimonialsSection } from "./components/sections/ClientTestimonialsSection";
+import { Testimonials } from "./components/sections/ClientTestimonialsSection";
 import { ComparisonSection } from "./components/sections/ComparisonSection";
 import { DemoSection } from "./components/sections/DemoSection";
 import { HeroSection } from "./components/sections/HeroSection";
@@ -43,7 +43,7 @@ export default function Home() {
 
       <DemoSection />
 
-      <ClientTestimonialsSection />
+      <Testimonials />
 
       <ComparisonSection id="faq-section" />
 
