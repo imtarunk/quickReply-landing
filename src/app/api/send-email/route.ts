@@ -2,9 +2,8 @@ import { Resend } from 'resend';
 
 
 export async function POST(req: Request) {
-    const { name, email, company, phone, message } = await req.json();
+    const {email} = await req.json();
     const resend = new Resend(process.env.RESEND_API_KEY);
-    console.log("received data",{name,email,company,phone,message})
 
     const emailTo = process.env.EMAIL_TO;
     if (!emailTo) {
@@ -16,12 +15,8 @@ export async function POST(req: Request) {
             to: [emailTo],
             subject: 'New Submission from Contact From',
             html: `
-        <h2>New Lead Submitted</h2>
-        <p><strong>Name:</strong> ${name}</p>
+        <h2>New Lead Submitted through live demo button </h2>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
       `,
         });
 

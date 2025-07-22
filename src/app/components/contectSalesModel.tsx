@@ -1,7 +1,7 @@
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Phone, ArrowRight, Mail } from "lucide-react";
-
+import React from "react"
 export function LiveDemoDialog({
   open,
   setOpenAction,
@@ -9,6 +9,49 @@ export function LiveDemoDialog({
   open: boolean;
   setOpenAction: (open: boolean) => void;
 }) {
+
+  const [email, setEmail] = React.useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      alert("Please enter a valid email address.");
+      setEmail('')
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+
+      if (res.ok && data) {
+        if (data.success || !data.error) {
+          alert("Email sent successfully!");
+          setEmail('');
+        } else {
+          alert("Error: " + data.error);
+        }
+      } else {
+        alert("Unexpected error. Please try again.");
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("Unexpected error during form submission:", err);
+        alert(`Something went wrong: ${err.message}`);
+      } else {
+        console.error("Non-Error thrown:", err);
+        alert("Something went wrong.");
+      }
+    }
+    setOpenAction(false)
+
+  }
   return (
     <Dialog open={open} onOpenChange={setOpenAction}>
       <DialogContent
@@ -20,7 +63,7 @@ export function LiveDemoDialog({
           {/* Live Demo Pill */}
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-[#4ebff7]">
             <Phone className="h-4 w-4 text-[#3eade4]" />
-            Live Demo
+            <DialogTitle className="sr-only">Live Demo</DialogTitle>
           </div>
 
           {/* Header */}
@@ -33,25 +76,28 @@ export function LiveDemoDialog({
           {/* Description */}
           {/* Responsive: Increased font size for better readability */}
           <p className="text-sm text-gray-600">
-            Enter your email to see how ReplyQuick turns missed calls into
+            Enter your Email to see how ReplyQuick turns missed calls into
             paying clients—no setup changes needed.
           </p>
 
           {/* --- CORE RESPONSIVE IMPROVEMENT: Flexible Sizing --- */}
           {/* Phone Input with Icon */}
-          <div className="relative w-full pt-2">
+          <div className="relative w-full pt-1">
             <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <Input
-              id="mail"
+              id="email"
               type="email"
               autoComplete="email"
-              placeholder="Email address"
+              placeholder="Email Address"
+              value={email}
               className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 text-base text-gray-900 placeholder-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ebff7] focus-visible:ring-offset-2"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           {/* Call to Action Button */}
           <button
+            onClick={handleSubmit}
             type="submit"
             className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#4EBFF7] to-[#35A3E8] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/50 hover:-translate-y-0.5 hover:saturate-150 shimmer-effect hover:cursor-pointer"
           >
