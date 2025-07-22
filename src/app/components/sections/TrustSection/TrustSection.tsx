@@ -29,7 +29,7 @@ export const TrustSection = () => {
           <p className="text-lg md:text-xl font-medium text-black/90 leading-relaxed mb-10 lg:mb-12 max-w-lg">
             Join the growing number of service providers using ReplyQuick to
             instantly follow up on missed calls, recover lost leads, and book
-            qualified customers — all without hiring extra staff. Pay only for
+            qualified customers, all without hiring extra staff. Pay only for
             real results.
           </p>
 
@@ -39,13 +39,13 @@ export const TrustSection = () => {
           >
             <button
               onClick={() => setOpen(true)}
-              className="shimmer-effect bg-gradient-to-r from-[#4EBFF7] to-[#35A3E8] text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-300/40 hover:saturate-150 inline-flex items-center justify-center"
+              className="shimmer-effect bg-gradient-to-r from-[#4EBFF7] to-[#35A3E8] text-white px-10 py-5 rounded-lg font-semibold text-2xl   transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-300/40 hover:saturate-150 inline-flex items-center justify-center"
             >
               Live Demo <ArrowRight className="ml-2 h-5 w-5" />
             </button>
 
             <button
-              className="shimmer-effect bg-black text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-800/40 inline-flex items-center justify-center"
+              className="shimmer-effect bg-black text-white px-10 py-5  rounded-lg font-semibold text-2xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-800/40 inline-flex items-center justify-center"
               onClick={() =>
                 document
                   .getElementById("contact")

@@ -12,20 +12,20 @@ export const ServiceBenefitsSection = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="sticky top-0 z-50 w-full h-[72px] bg-white shadow-[0_0_22px_#4ebff740] backdrop-blur-lg flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20">
+    <header className="sticky top-0 z-50 w-full h-[80px] bg-white shadow-[0_0_22px_#4ebff740] backdrop-blur-lg flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-58">
       {/* Logo */}
       <Link href="/" className="z-20">
         <Image
           src="/logo.png"
           alt="Logo"
-          width={79}
-          height={46}
-          className="object-cover rounded-lg w-[79px] h-[46px]"
+          width={100}
+          height={100}
+          className="object-cover rounded-lg w-[82px] h-[46px]"
         />
       </Link>
 
       {/* Desktop Nav */}
-      <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-10">
+      <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-20">
         {navItems.map((item) => (
           <a
             key={item.label}
@@ -41,7 +41,7 @@ export const ServiceBenefitsSection = () => {
       <div className="hidden md:flex">
         <Button
           variant="gradient"
-          className="px-6 py-2 text-sm font-semibold shimmer-effect hover:cursor-pointer"
+          className="px-6 py-2 text-xl font-semibold shimmer-effect hover:cursor-pointer"
           onClick={() =>
             document
               .getElementById("contact")
