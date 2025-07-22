@@ -18,7 +18,6 @@ export function ContactSection() {
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
-    console.log(formData)
 
     // send form data to your email address
     try {
@@ -30,7 +29,6 @@ export function ContactSection() {
         body: JSON.stringify(formData)
       })
       const result = await res.json()
-      console.log(res)
       if (result.success) {
         alert("Email sent successfully!");
         form.reset();
