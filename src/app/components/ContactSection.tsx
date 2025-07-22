@@ -29,15 +29,29 @@ export function ContactSection() {
         body: JSON.stringify(formData)
       })
       const result = await res.json()
-      if (result.success) {
+
+      if (!res.ok) {
+        console.error("Backend returned an error:", result);
+        alert(`Failed to send email: ${result.error || "Unknown error from server"}`);
+        return;
+      }
+
+      if (result.success !== false) {
         alert("Email sent successfully!");
         form.reset();
       } else {
-        alert("Failed to send email.");
+        alert(`Failed to send email: ${result.error || "No specific error message"}`);
       }
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong.");
+
+
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("Unexpected error during form submission:", err);
+        alert(`Something went wrong: ${err.message}`);
+      } else {
+        console.error("Non-Error thrown:", err);
+        alert("Something went wrong.");
+      }
     }
 
 
@@ -70,14 +84,14 @@ export function ContactSection() {
               <Label htmlFor="name" className="text-sm font-medium">
                 Name *
               </Label>
-              <Input id="name" placeholder="Your full name" required />
+              <Input id="name" name="name" placeholder="Your full name" required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium">
                 Email *
               </Label>
               <Input
-                id="email"
+                id="email" name="email"
                 type="email"
                 placeholder="your@email.com"
                 required
@@ -87,14 +101,14 @@ export function ContactSection() {
               <Label htmlFor="company" className="text-sm font-medium">
                 Company Name
               </Label>
-              <Input id="company" placeholder="Your company" />
+              <Input id="company" name="company" placeholder="Your company" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-medium">
                 Phone
               </Label>
               <Input
-                id="phone"
+                id="phone" name="phone"
                 type="tel"
                 placeholder="(555) 123-4567"
 
@@ -105,7 +119,7 @@ export function ContactSection() {
                 Message
               </Label>
               <Textarea
-                id="message"
+                id="message" name="message"
                 placeholder="Tell us about your current challenges with customer communication..."
                 className="min-h-[120px]"
 
